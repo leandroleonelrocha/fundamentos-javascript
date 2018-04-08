@@ -1,39 +1,68 @@
 <html>
 	<script >
-	let base = 5
-	let altura = 7
-	/*
-	function calcularArea(base, altura){
-		return base * altura / 2
-	}
-	*/
-
-	let calcularArea = (base,altura) => base * altura / 2 
-	console.log(calcularArea())
-
-
-	let calcularEdad = (edad,acompanado = false, arreglo = false) => {
-		
-		if(edad > 13){
-			console.log('puede ver la pelicula')
-
-		}else if(acompanado){
-			console.log('es un menor de mierda pero esta aocmpñado')
-		}else if(arreglo){
-			console.log('es un menor pero tiene arreglo con el dueño')
-		}
-
-		else{
-
-			console.log('no puede ver nada')
-
-		}
-	}
-
-	let imprimir = (name) => console.log('El/a señor: ' +name)
-
-	console.log(imprimir('roberto'), calcularEdad(10, false, true))
 	
+
+		// vida de cada uno
+		// cuanto pega cada uno
+		// mientras tengan vida ,calcular pelea
+		
+		let vidaGoku 	= 100;
+		let vidaVegeta 	= 100;
+		/*
+		let calcularGolpe = Math.round(Math.random() * (20 - 10) + 10 )
+		*/
+		const calcularGolpe = () => Math.round(Math.random() * (12 - 5) + 5);
+
+
+		function calcularVivos(){
+
+			if(vidaGoku > 0 && vidaVegeta > 0){
+				return true;
+			}
+			return false;
+		}
+
+		let calcularRounds = 0
+
+		function round(){
+
+			pegaGoku 	= calcularGolpe()
+			pegaVegeta 	= calcularGolpe()
+			
+			if(pegaGoku > pegaVegeta){
+				console.log(`Pega Goku con un golpe de : ${pegaGoku}`)
+				vidaVegeta -= pegaGoku;
+
+			}else{
+				console.log(`Pega Vegeta con un golpe de : ${pegaVegeta}`)
+				vidaGoku -= pegaVegeta;
+			}
+			
+			calcularRounds ++			
+
+		}
+
+		
+		function calcularPelea(){
+
+			while(calcularVivos()){
+
+				round()
+			}
+
+			console.log(vidaGoku);
+			console.log(vidaVegeta);
+			
+			if(vidaGoku > vidaVegeta){
+				console.log(`Gano Goku: ` + calcularRounds + ' rounds')
+			}else{
+				console.log(`Gano Vegeta: ` + calcularRounds + ' rounds')
+			}	
+
+		}
+
+		console.log(calcularPelea())
+		
 
 	</script>
 
