@@ -1,38 +1,56 @@
 <html>
 	<script >
-	let base = 5
-	let altura = 7
-	/*
-	function calcularArea(base, altura){
-		return base * altura / 2
-	}
-	*/
+		function platzom(str){
+  let translation = str
+  //regla 1 cortar los ultimos dos caracteres de las palabras que terminen con `ar`
+  if(str.toLowerCase().endsWith(`ar`))
+    //pasamos la cadena a minusculas y preguntamos si termina con `ar`
+    translation = str.slice(0,-2)
+    //si la sentencia es correcta cortamos la cadena menos sus ultimos dos caracteres y la asignamos a la variable translate
 
-	let calcularArea = (base,altura) => base * altura / 2 
-	console.log(calcularArea())
+//regla 2 añadir pe al final de las palabras que comienzan con `z`
+  if(str.toLowerCase().startsWith(`z`))
+    //pasamos la cadena a minusculas y preguntamos si comienza con `z`
+    translation += `pe`
+    //si la condicion es corecta agregamos `pe` al final
+
+//regla 3 separar la spalabras con mas de 10 caracteres por la mitad
+  const length = translation.length //creamos una constante con el largo de caracteres de la cadema
+  if(length >=10){// preguntamos si el largo de la cadena es mayor o igual a 10
+    //si la sentencia se cumple separamos la cadena por la mitad usando slice, y dividiendo la cadena por la mitad con Math.round
+    const firtHalf = translation.slice(0, Math.round(length / 2))
+    const secondHalf = translation.slice(Math.round(length / 2))
+    translation = `${firtHalf}-${secondHalf}`//creamos una nueva cadena usando las partes antes obtenidas y añadiendo un `-` entre las dos partes
+  }
 
 
-	let calcularEdad = (edad,acompanado = false, arreglo = false) => {
-		
-		if(edad > 13){
-			console.log('puede ver la pelicula')
+//regla 4 si la palabra es un palindromo no aplican las reglas anteriores y se pone una mayuscula,una minuscula
+const reverse = (str) => str.split('').reverse().join('')
+//transformamos nuestra cadena  en un array,añadiendo un caracter a caa posicion y luego recorremos el array en forma inversa, luego unimos nuevamente la cadena
+function minMay(str){
+  const length = str.length//guardamos el largo de caracteres
+  let translation =''//inicializamos translation como una cadena vacia
+  let capitalize = true //inicializamos capitalize como true
+  for(let i = 0;i <= length; i++){//usamos un for para iterar una vez por cada caracter que contenga la cadena
+    const char = str.charAt(i)//tomamos solo el caracter correspondiente a la iteracion
+    translation += capitalize ? char.toUpperCase(): char.toLowerCase()
+    //a translation le añadimos el valor de chart, y dependiendo del valor de capitalize usando el operador ternario ? definimos si ponemos el caracter en mayusculas, o en minusculas
+    capitalize = !capitalize //asignamos a capitalize el valor contrario al que tenia
+  }
+    return translation
+  }
 
-		}else if(acompanado){
-			console.log('es un menor de mierda pero esta aocmpñado')
-		}else if(arreglo){
-			console.log('es un menor pero tiene arreglo con el dueño')
-		}
+  if( str == reverse(str)){//preguntamos si nuestra cadena es igual al resultado de nuestra funcion reverse
+    return minMay(str)//si la sentencia es verdadera usamos la funcion minMay() para convertir la cadena a mayusculas y minusculas
+  }
+  return translation//retornamos el resultado de translate
+}
 
-		else{
-
-			console.log('no puede ver nada')
-
-		}
-	}
-
-	let imprimir = (name) => console.log('El/a señor: ' +name)
-
-	console.log(imprimir('roberto'), calcularEdad(10, false, true))
+console.log(platzom(`programar`))
+console.log(platzom(`zorro`))
+console.log(platzom(`zarpe`))
+console.log(platzom(`abecedario`))
+console.log(platzom(`sometemos`))
 	
 
 	</script>
