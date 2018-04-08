@@ -1,0 +1,42 @@
+<html>
+	<script >
+	let base = 5
+	let altura = 7
+	/*
+	function calcularArea(base, altura){
+		return base * altura / 2
+	}
+	*/
+
+	let calcularArea = (base,altura) => base * altura / 2 
+	console.log(calcularArea())
+
+
+	let calcularEdad = (edad,acompanado = false, arreglo = false) => {
+		
+		if(edad > 13){
+			console.log('puede ver la pelicula')
+
+		}else if(acompanado){
+			console.log('es un menor de mierda pero esta aocmpñado')
+		}else if(arreglo){
+			console.log('es un menor pero tiene arreglo con el dueño')
+		}
+
+		else{
+
+			console.log('no puede ver nada')
+
+		}
+	}
+
+	let imprimir = (name) => console.log('El/a señor: ' +name)
+
+	console.log(imprimir('roberto'), calcularEdad(10, false, true))
+	
+
+	</script>
+
+</html>
+
+
