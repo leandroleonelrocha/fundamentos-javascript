@@ -1,14 +1,46 @@
 <html>
 	<script >
+
+	const name = "Jonas"
+
+	const Fecha_Nacimiento = new Date(1990,20,11)
+	const Hoy = new Date()
+
+	const tiempoAnos = Math.floor((Hoy-Fecha_Nacimiento)*1/1000*1/60*1/60*1/24*1/365)
+
+	console.log(`Ya han pasado ${tiempoAnos} años desde tu Nacimiento`)
+
+
+	const dias = [
+		'lunes',
+		'martes',
+		'miercoles',
+		'jueves',
+		'viernes',
+		'sabado',
+		'domingo',
+	]
 	
-const name = "Jonas"
 
-const Fecha_Nacimiento = new Date(1990,20,11)
-const Hoy = new Date()
+	function correr(){
+		const min = 10
+		const max = 20
 
-const tiempoAnos = Math.floor((Hoy-Fecha_Nacimiento)*1/1000*1/60*1/60*1/24*1/365)
+		return	Math.round(Math.random() * (max - min) + min)
+	}
 
-console.log(`Ya han pasado ${tiempoAnos} años desde tu Nacimiento`)
+	let totalKms = 0
+
+	for(let i=0; i<dias.length; i++){
+
+		const kms = correr()
+		totalKms += kms
+
+		console.log(`El dia: ${dias[i]} corrió: ${kms}` );	
+	}	
+
+	console.log('El promedio es:' + totalKms + 'Kms')
+
 
 	</script>
 
