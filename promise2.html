@@ -1,0 +1,37 @@
+<html>
+	<script type="text/javascript">
+	let text = document.getElementById('text')
+	
+	function consulta(){
+		let questHtml = prompt('Te gusta html').toLowerCase();
+
+		return new Promise((resolve, reject) => {
+			if(questHtml == 'si'){
+				resolve('te gusta html')
+			}else{
+				reject('no te gusta html')
+			}
+		})
+	}
+
+	function result(message){
+		text = message
+		console.log(message)
+	}
+	
+	function error(message){
+		text = message
+		console.log(message)
+	}
+
+	consulta()
+		.then((result) => message)
+		//.then((message) => $agenda.textContent = message)
+		.catch(error)
+
+	</script>
+
+	<body>
+		<div id="text"></div>
+	</boyd>
+</html>
