@@ -1,47 +1,51 @@
 <html>
 	<script >
 
-	const name = "Jonas"
+	/*Objetos en javascript
+	En este ejemplo usaremos objetos para calcular la distancia entre dos puntos, estos puntos seran representados por objetos
 
-	const Fecha_Nacimiento = new Date(1990,20,11)
-	const Hoy = new Date()
+	*/
 
-	const tiempoAnos = Math.floor((Hoy-Fecha_Nacimiento)*1/1000*1/60*1/60*1/24*1/365)
-
-	console.log(`Ya han pasado ${tiempoAnos} años desde tu Nacimiento`)
-
-
-	const dias = [
-		'lunes',
-		'martes',
-		'miercoles',
-		'jueves',
-		'viernes',
-		'sabado',
-		'domingo',
-	]
-	
-
-	function correr(){
-		const min = 10
-		const max = 20
-
-		return	Math.round(Math.random() * (max - min) + min)
+	const p1 = {//creamos el objeto, para esto usamos las llaves
+	  x:0,//añadimos las propiedades del objeto y usamos : para añadir un valora esta propiedad
+	  y:4,//separamos las propiedades de nuestro objeto usando una ,
+	  moverEnX: function(x) { return this.x = this.x + x },
+	  moverEnY: function(y) { return this.y = this.y + y }
 	}
 
-	let totalKms = 0
-
-	for(let i=0; i<dias.length; i++){
-
-		const kms = correr()
-		totalKms += kms
-
-		console.log(`El dia: ${dias[i]} corrió: ${kms}` );	
-	}	
-
-	console.log('El promedio es:' + totalKms + 'Kms')
+	const p2 = {
+	  x:5,
+	  y:0
+	}
 
 
+	//creamos una funcion para calcular la distancia entre los puntos
+	function distancia(p1,p2){
+	// para calcular la distancia entre dos puntos usamos una formula matematica (distancia = raiz cuadrada de x2 + y2)
+	  const x = p1.x - p2.x
+	  const y = p1.y - p2.y
+
+	  return Math.sqrt(x * x + y * y)
+	}
+
+
+	console.log(distancia(p1,p2))
+	console.log(p1.moverEnX(10))
+	console.log(p1.moverEnX(15))
+
+	console.log('mover en Y:')
+	console.log(p1.moverEnY(15))
+	
+	/*Objetos
+	un objeto es una coleccion de propiedades con un nombre y valor, estas propiedades pueden ser tan simples como variables, o funciones,
+	Cuando un objeto tiene funciones como propiedades estas son conocidas como metodos del objeto.
+	 un ejemplo de objeto que hemos visto bastante es el objeto Math y hemos visto algunos de sus metodos como round(), floor(), random() etc..
+
+
+	Funciones usadas
+
+	sqrt() -> nos retorna la raiz cuadrada del numero que le pasamos como parametro
+	 */
 	</script>
 
 </html>

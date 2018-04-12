@@ -1,0 +1,95 @@
+<html>
+	<script >
+
+	/*
+		peleadores
+		calcular pegada de 
+		calcular round
+		calcular pelea
+
+	*/
+
+	let goku = {
+		'vida' : 100
+	}
+
+	let vegeta = {
+		'vida' : 100
+	}
+
+	/*	
+	let calcularPegada = (min = 10,max = 20) =>  Math.round(Math.random() * (max - min) + min)
+	*/	
+	function calcularPegada(){
+
+		let min = 10
+		let max = 20
+
+		return Math.round(Math.random() * (max - min) + min)
+
+	}
+	/*
+	let sigueVivo = (goku.vida > 0 && vegeta.vida > 0) ? true : false
+	*/
+	function sigueVivo(){
+		if(goku.vida > 0 && vegeta.vida > 0) {
+			return true
+		}else{
+			return false
+		}
+	}
+
+	let cantidadRound = 0
+
+	function calcularRound(){
+
+		let pegaGoku 	= calcularPegada()
+		let pegaVegeta 	= calcularPegada()
+
+		if(pegaGoku > pegaVegeta){
+
+			vegeta.vida -= pegaGoku
+			console.log(`Pega goku con una fuerza de: ${pegaGoku}, vida restante: ${vegeta.vida}`)
+		}else{
+
+			goku.vida -= pegaVegeta
+			console.log(`Pega vegeta con una fuerza de: ${pegaVegeta}, vida restante: ${goku.vida}`)
+		}
+
+		cantidadRound ++
+	}
+
+	function ganador(){
+		if(goku.vida > vegeta.vida){
+			console.log(`Goku ganador`)
+		}else{
+			console.log(`Vegeta ganador`)
+		}
+	}
+
+	function pelea(){
+
+		while(sigueVivo()){
+			calcularRound()
+		}
+
+		console.log(ganador())
+		console.log(`Cantida de round: ${cantidadRound}`)
+	}
+
+	console.log(pelea())
+
+	/*Objetos
+	un objeto es una coleccion de propiedades con un nombre y valor, estas propiedades pueden ser tan simples como variables, o funciones,
+	Cuando un objeto tiene funciones como propiedades estas son conocidas como metodos del objeto.
+	 un ejemplo de objeto que hemos visto bastante es el objeto Math y hemos visto algunos de sus metodos como round(), floor(), random() etc..
+
+
+	Funciones usadas
+
+	sqrt() -> nos retorna la raiz cuadrada del numero que le pasamos como parametro
+	 */
+	</script>
+
+</html>
+

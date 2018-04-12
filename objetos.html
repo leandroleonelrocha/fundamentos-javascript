@@ -1,0 +1,83 @@
+<html>
+	<script>
+	function Prueba(var1,var2){ //  Mi constructor
+		this.var1 = var1;
+		this.var2 = var2;
+	}
+
+	Prueba.prototype.alertador = function alertador(varx1,varx2){ // prototipando  con 2 argunemntos
+		 
+		 const suma1 = this.var1 + varx1;  
+		 const suma2 = this.var2 + varx2; 
+
+		 console.log(suma1 + ',' + suma2)
+
+	}
+
+	Prueba.prototype.mostrar = function mostrar(){
+
+		console.log(this.var1 + ',' + this.var2)
+	}
+
+	//let p1 = new Prueba("entra "," sale "); //creo objetos 
+	//let p2 = new Prueba(5,6);
+
+	
+	/*
+	const Punto = {
+
+		init:function init(x,y){
+			this.x = x
+			this.y = y
+		},
+
+		mostrar:function mostrar() {
+			return this.x + '-' + this.y
+
+		}
+	}
+
+	const p1 = Object.create(Punto)
+	p1.init(1,2)
+	console.log(p1.mostrar())
+	*/
+
+
+	class Punto {
+	  constructor(x,y) {
+	    this.x = x
+	    this.y = y
+	  }
+	  moverEnX(x) {
+	    this.x += x
+	  }
+	  moverEnY(y) {
+	    this.y += y
+	}
+	const p1 = new Punto(0,4)
+	const p2 = new Punto(3,0)
+	
+
+	console.log(p1.moverEnX(5))
+
+	class Persona{
+  		constructor(nombre, amigos = []) {
+	    this.nombre = nombre
+	    this.amigos = amigos
+  	}
+
+  	listarAmigos() {
+    	const _this = this
+    	this.amigos.forEach(function (amigo) {
+      	console.log(`Hola mi nombre es ${_this.nombre} y soy amigo de ${amigo}`)
+      	// console.log(`Hola mi nombre es ${this.nombre} y soy amigo de ${amigo}`)
+    	})
+  	}
+
+  	p1 = new Persona('sacha', ['1','2','3'])
+
+
+
+	</script>
+
+</html>
